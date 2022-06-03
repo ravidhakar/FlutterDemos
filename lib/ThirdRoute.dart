@@ -41,8 +41,7 @@ class ThirdRoute extends StatelessWidget {
           child: ElevatedButton(
             child: const Text('Open First route'),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (builder) => const FirstRoute()));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) => const FirstRoute()), (route) => false);
             },
           ),
         ),
