@@ -17,9 +17,9 @@ class FirstRoute extends StatelessWidget {
               width: 300.0,
               height: 300.0,
               fit: BoxFit.cover,
-              image: AssetImage('launcher_icon.png')
+              image: AssetImage('images/launcher_icon.png')
           ),
-          Image.asset('launcher_icon.png'),
+          Image.asset('images/launcher_icon.png'),
           Center(
             child: ElevatedButton(
               child: const Text('Open route'),
