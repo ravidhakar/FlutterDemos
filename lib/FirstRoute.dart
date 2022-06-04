@@ -10,14 +10,28 @@ class FirstRoute extends StatelessWidget {
       appBar: AppBar(
         title: const Text('First Route'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (builder) => const SecondRoute()));
-          },
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Image(
+              width: 300.0,
+              height: 300.0,
+              fit: BoxFit.cover,
+              image: AssetImage('launcher_icon.png')
+          ),
+          Image.asset('launcher_icon.png'),
+          Center(
+            child: ElevatedButton(
+              child: const Text('Open route'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (builder) => const SecondRoute()));
+              },
+            ),
+          )
+        ],
       ),
     );
   }
