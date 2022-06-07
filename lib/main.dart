@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => HomePageViewModel())
       ],
-      child: const MaterialApp(
+      child: const MaterialApp(debugShowCheckedModeBanner: false,
         title: 'Navigation Basics',
         home: HomePageWidget(),
       ),

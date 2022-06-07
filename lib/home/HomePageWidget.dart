@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_page_navigation/datamodel/User.dart';
 import 'package:flutter_page_navigation/home/vm/HomePageViewModel.dart';
+import 'package:flutter_page_navigation/mvvm/view/NextPageWidget.dart';
 import 'package:provider/provider.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     HomePageViewModel vm = Provider.of(context);
-    if(vm.userInfo==null) {
+    if (vm.userInfo == null) {
       vm.getUserInfo();
     }
     return Scaffold(
@@ -40,9 +41,6 @@ class _HomePageState extends State<HomePageWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           CircularProgressIndicator(),
-          SizedBox(
-            height: 15,
-          ),
         ],
       ),
     );
@@ -50,9 +48,18 @@ class _HomePageState extends State<HomePageWidget> {
 
   Widget displayUserInfo(User? user) {
     print("displayUserInfo");
-    return Center(
-      child: Column(
-        children: [Text(user?.name ?? ""), Image(image: user!.icon)],
+    return Center(heightFactor: 0.5,
+      child: InkWell(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text(user?.name ?? ""), Image(image: user!.icon)],
+        ),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (builder) => const NextPageWidget()));
+        },
       ),
     );
   }
